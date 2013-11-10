@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ static_url("styles/main.css") }}">
+    <link rel="stylesheet" href="{{ static_url("styles/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ static_url("styles/bootstrap.theme.min.css") }}">
+</head>
+
+<body lang="en">
+    <h1>SockJS Multiplex example</h1>
+
+    <div id="first" class="box">
+      <div></div>
+      <form><input autocomplete="off" value="Type here..."></input></form>
+    </div>
+
+    <div id="second" class="box">
+      <div></div>
+      <form><input autocomplete="off"></input></form>
+    </div>
+
+    <div id="third" class="box">
+      <div></div>
+      <form><input autocomplete="off"></input></form>
+    </div>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+    <script src="{{ static_url("scripts/bootstrap.min.js") }}"></script>
+</body>
+
+</html>

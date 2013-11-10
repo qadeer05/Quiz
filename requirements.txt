@@ -1,0 +1,4 @@
+tornado
+asyncmongo
+-e git+https://github.com/mrjoes/toredis.git#egg=toredis
+-e git+https://github.com/mrjoes/sockjs-tornado.git#egg=sockjs-tornado

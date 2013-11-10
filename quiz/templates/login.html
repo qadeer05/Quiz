@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ static_url("styles/main.css") }}">
+    <link rel="stylesheet" href="{{ static_url("styles/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ static_url("styles/bootstrap.theme.min.css") }}">
+</head>
+
+<body lang="en">
+
+    <div class="column">
+    <div class="ui fluid form segment">
+      <h3 class="ui header">Login</h3>
+      <div class="field">
+        <label>Username</label>
+        <input placeholder="Username" type="text">
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password">
+      </div>
+      <div class="ui blue submit button">Login</div>
+    </div>
+  </div>
+
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+    <script src="{{ static_url("scripts/bootstrap.min.js") }}"></script>
+</body>
+
+</html>
