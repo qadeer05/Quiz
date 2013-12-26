@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <title>{{ get_page_title(page) }}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Quiz application">
+    <meta name="author" content="Qadeer Mohammed">
+
+    <link rel="stylesheet" href="{{ static_url("styles/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ static_url("styles/bootstrap-theme.min.css") }}">
+    <link rel="stylesheet" href="{{ static_url("styles/main.css") }}">
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+     <div class="container">
+        <div class="header">
+            {% block header %}{% end %}
+        </div>
+
+        {% block content %}{% end %}
+
+        <div class="footer">
+            <p>&copy; Qadeer Mohammed 2014</p>
+        </div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+    <script src="{{ static_url("scripts/bootstrap.min.js") }}"></script>
+</body>
+
+</html>
