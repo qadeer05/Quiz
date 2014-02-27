@@ -3,6 +3,7 @@ include
 lib
 local
 src
+data
 *.pyc
 TODO.txt
 !quiz/src

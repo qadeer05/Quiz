@@ -38,5 +38,3 @@ Before running the server please make sure that you have redis and mongodb insta
 ```
 > python quiz/src/server.py
 ```
-
-
