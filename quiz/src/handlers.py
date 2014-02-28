@@ -10,13 +10,28 @@ class IndexHandler(tornado.web.RequestHandler):
     """Handler to serve the home page"""
     @tornado.web.authenticated
     def get(self):
-        self.render('index.html', page="Home")
+        #self.render('index.html', page="Home")
+        self.write('index')
 
 
 class LoginHandler(tornado.web.RequestHandler):
     """Handler to serve the login page"""
     def get(self):
         self.render('login.html', page="Login")
+
+    @tornado.web.asynchronous
+    @gen.engine
+    def post(self):
+        email = self.get_argument('email')
+        pwd = self.get_argument('pwd')
+
+        db = self.settings["mongodb"]
+        user = yield motor.Op(db.users.find_one, {'email': email})
+        if user is not None:
+            if pwdhash.check_hash(pwd, user['pwd']):
+                #create login cookie 
+                self.set_secure_cookie("useremail", email)
+                self.redirect('/')
 
 
 class LogoutHandler(tornado.web.RequestHandler):
@@ -52,7 +67,7 @@ class RegisterHandler(tornado.web.RequestHandler):
         #create login cookie 
         self.set_secure_cookie("useremail", email)
         #self.finish()
-        self.redirect('index')
+        self.redirect('/')
 
 class ContactHandler(tornado.web.RequestHandler):
     """Handler to serve the contact us page"""
