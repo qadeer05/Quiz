@@ -6,15 +6,18 @@ import datetime
 from bson.objectid import ObjectId
 import pwdhash
 
-class IndexHandler(tornado.web.RequestHandler):
+class BaseHandler(tornado.web.RequestHandler):
+    def get_current_user(self):
+        return self.get_secure_cookie("useremail")
+
+class IndexHandler(BaseHandler):
     """Handler to serve the home page"""
     @tornado.web.authenticated
     def get(self):
-        #self.render('index.html', page="Home")
-        self.write('index')
+        self.render('index.html', page="Home")
 
 
-class LoginHandler(tornado.web.RequestHandler):
+class LoginHandler(BaseHandler):
     """Handler to serve the login page"""
     def get(self):
         self.render('login.html', page="Login")
@@ -34,13 +37,13 @@ class LoginHandler(tornado.web.RequestHandler):
                 self.redirect('/')
 
 
-class LogoutHandler(tornado.web.RequestHandler):
+class LogoutHandler(BaseHandler):
     """Handler to logout the logged in user and then server the login page"""
     def get(self):
         self.render('login.html', page="Login")
 
 
-class RegisterHandler(tornado.web.RequestHandler):
+class RegisterHandler(BaseHandler):
     """Handler to serve the new user registration page"""
     def get(self):
         self.render('register.html', page="Register")
@@ -69,13 +72,13 @@ class RegisterHandler(tornado.web.RequestHandler):
         #self.finish()
         self.redirect('/')
 
-class ContactHandler(tornado.web.RequestHandler):
+class ContactHandler(BaseHandler):
     """Handler to serve the contact us page"""
     def get(self):
         self.render('contact.html', page="Contact")
 
 
-class AboutHandler(tornado.web.RequestHandler):
+class AboutHandler(BaseHandler):
     """Handler to serve the about page"""
     def get(self):
         self.render('about.html', page="About")
