@@ -4,6 +4,7 @@ lib
 local
 src
 data
+venvpy27
 *.pyc
 TODO.txt
 !quiz/src
